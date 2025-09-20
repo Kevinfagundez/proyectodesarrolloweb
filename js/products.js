@@ -57,3 +57,48 @@ if (!localStorage.getItem('sesionIniciada')) {
         alert("Por favor, inicia sesión.");
          window.location.href = "login.html";
     }
+
+
+// JAVASCRIPT PARA BUSQUEDA (DESAFIATE 3)
+
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.querySelector(".search-box button");
+const productsContainer = document.getElementById("products-container");
+
+// función filtrar 
+function searchProducts() {
+  const text = searchInput.value.toLowerCase(); // lo que escribe el usuario
+  const products = productsContainer.children; // cada tarjeta de producto
+
+  let found = false;
+
+  for (let product of products) {
+    const content = product.textContent.toLowerCase();
+
+    if (content.includes(text)) {
+      product.style.display = ""; // mostrar
+      found = true;
+    } else {
+      product.style.display = "none"; // ocultar
+    }
+  }
+
+  // mensaje no hay resultados
+  let msg = document.getElementById("no-results");
+  if (!found) {
+    if (!msg) {
+      msg = document.createElement("p");
+      msg.id = "no-results";
+      msg.textContent = "No se encontraron resultados";
+      productsContainer.parentNode.appendChild(msg);
+    }
+  } else if (msg) {
+    msg.remove();
+  }
+}
+
+// al escribir
+searchInput.addEventListener("keyup", searchProducts);
+
+// al hacer clic en la lupa
+searchButton.addEventListener("click", searchProducts);
