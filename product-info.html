@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OranGo-Market - Información del producto</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700,900&display=swap" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/darkmode.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="workspace-de-0/logo-orango.png" alt="OranGo-Market">
+      <h1>OranGo-Market</h1>
+    </div>
+    <nav class="menu">
+      <ul id="menuUL">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="categories.html">Categorías</a></li>
+        <li><a href="sell.html">Vender</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="my-profile.html">👤 <span id="user-name"></span></a></li>
+        <li><a href="carrito.html" class="cart"><img src="workspace-de-0/basket-cart-icon-27.png" alt="Carrito"></a></li>
+        <li><button id="darkModeToggle" class="btn btn-outline-light ms-auto">🌙 Modo oscuro</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+
+    <!-- 🔹 Producto + panel lateral de calificación -->
+    <div class="row">
+      <!-- Columna izquierda: producto -->
+      <div class="col-lg-8 mb-4">
+        <div id="product-info"></div>
+      </div>
+
+      <!-- Columna derecha: solo calificación -->
+      <div class="col-lg-4">
+        <div class="rating-box p-3 bg-light rounded shadow-sm">
+          <h5 class="rating-title text-center mb-3">Deja tu calificación</h5>
+
+          <textarea class="rating-comment form-control mb-3" placeholder="Escribe tu comentario..."></textarea>
+
+          <div class="rating-stars mb-3 text-center">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+          </div>
+
+          <div class="text-center">
+            <button class="rating-btn btn btn-warning text-white fw-bold px-4">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reseñas debajo del producto -->
+    <div class="mt-5">
+      <div id="review-section"></div>
+    </div>
+
+    <!--  Productos relacionados -->
+    <section class="mt-5">
+      <h3 class="mb-3">Productos relacionados</h3>
+      <div id="relatedProducts" class="row row-cols-1 row-cols-md-3"></div>
+    </section>
+
+  </main>
+
+  <footer class="text-muted mt-5">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
+    </div>
+  </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const userName = localStorage.getItem('userName');
+      const userNameSpan = document.getElementById('user-name');
+      if (userName && userNameSpan) {
+        userNameSpan.textContent = userName;
+      }
+    });
+  </script>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+</body>
+</html>
